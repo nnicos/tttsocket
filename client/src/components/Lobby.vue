@@ -37,7 +37,7 @@ export default {
     },
     mounted(){
         this.socket.on('err', data => {
-             this.errorMessageJoinGame = data.message;
+            this.errorMessageJoinGame = data.message;
         });
     }, 
     methods: {

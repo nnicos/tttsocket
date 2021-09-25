@@ -16,7 +16,6 @@ io.on('connection', (socket) => {
   socket.on('createGame', (data) => {
     socket.join(`room-${++rooms}`);
     socket.emit('newGame', { name: data.name, room: `room-${rooms}` });
-    console.log(socket.rooms)
   });
 
   // Connect the Player 2 to the room he requested. Send error if room full.
@@ -29,7 +28,6 @@ io.on('connection', (socket) => {
       socket.join(data.room);
       socket.broadcast.to(data.room).emit('player1', {});
       socket.emit('player2', { name: data.name, room: data.room });
-      console.log(io.sockets.adapter.rooms.get(data.room));
     } else {
       socket.emit('err', { message: 'Sorry, The room is full! or does not exist!' });
     }
@@ -47,7 +45,6 @@ io.on('connection', (socket) => {
   
     //Notify the players about the victor.
     socket.on('gameEnded', (data) => {
-      console.log('received winner');
       //send message to room
       io.to(data.room).emit('gameEnd', data);
     });

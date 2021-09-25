@@ -1,6 +1,3 @@
-//let player;
-//let socket;
-
 class Game {
     constructor(roomId, socket) {
       this.roomId = roomId;
