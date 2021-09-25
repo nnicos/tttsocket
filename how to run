@@ -1,0 +1,7 @@
+STEP1: navigate to tttsocket/server => npm start
+STEP2: navigate to tttsocket/client => npm run server
+
+if STEP2 gives you ERROR "cannot find module 'vue-loader-v16/package.json"
+
+navigate to tttsocket/client => npm i --save-dev vue-loader-v16
+
