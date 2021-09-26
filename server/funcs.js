@@ -11,16 +11,17 @@ exports.generateText = (name, age) => {
     return newElement;
   };
   
-  exports.validateInput = (text, notEmpty, isNumber) => {
+  exports.validateInput = (text) => {
     // Validate user input with two pre-defined rules
-    if (!text) {
+    if (!text || text == null) {
       return false;
     }
-    if (notEmpty && text.trim().length === 0) {
+
+    if (typeof text != 'string'){
       return false;
     }
-    if (isNumber && +text === NaN) {
-      return false;
-    }
+
     return true;
   };
+
+  
